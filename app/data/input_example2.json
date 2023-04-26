@@ -1,0 +1,11 @@
+{
+  "keywords": [
+    "python",
+    "django-rest-framework",
+    "jwt"
+  ],
+  "proxies": [
+    "https://198.27.74.6:9300"
+  ],
+  "type": "Repositories"
+}
