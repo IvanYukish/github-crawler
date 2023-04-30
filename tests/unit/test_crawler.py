@@ -63,10 +63,12 @@ def test_get_urls(mock_map, mock_get, test_input, expected):
 )
 @patch.object(grequests, "get")
 @patch.object(grequests, "map")
-def test_collect_url_info(mock_map, mock_get, test_input, expected):
+@patch.object(GitHubCrawler, "get_urls")
+def test_run(mock_crawler, mock_map, mock_get, test_input, expected):
     with open('tests/test_data/cloud_storage.html', 'r') as file:
         content = file.read()
 
+    mock_crawler.return_value = test_input
     response = [requests.Response()]
     response[0].status_code = 200
     response[0]._content = bytes(content, "utf-8")
@@ -82,6 +84,6 @@ def test_collect_url_info(mock_map, mock_get, test_input, expected):
         ],
         "type": "Repositories"
     })
-    collected_data = instance.collect_url_info(test_input)
+    collected_data = instance.run()
 
     assert collected_data == expected

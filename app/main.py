@@ -4,8 +4,10 @@ import os
 import random
 from urllib.parse import urljoin
 
-from bs4 import BeautifulSoup
 import grequests
+from bs4 import BeautifulSoup
+
+from app.models import GithubModel
 
 logger = logging.getLogger(__name__)
 
@@ -20,8 +22,10 @@ class GitHubCrawler:
         self.type = type
 
     def get_urls(self) -> list[str]:
-        url = f"{self.GITHUB_BASE_URL}search?q={','.join(self.keywords)}&type={self.type}&o=desc&s="
-        rs = [grequests.get(url, proxies={"http": self.proxy})]
+        url = urljoin(self.GITHUB_BASE_URL, "search")
+        params = {"q": ','.join(self.keywords), "type": self.type, "o": "desc", "s": ""}
+
+        rs = [grequests.get(url, params=params, proxies={"http": self.proxy})]
         response = grequests.map(rs)
         soup = BeautifulSoup(response[0].content, "html.parser")
         link_list = soup.find_all("a", {"class": "v-align-middle"})
@@ -42,16 +46,18 @@ class GitHubCrawler:
                                languages} or None
         }
 
-    def collect_url_info(self, urls) -> list[dict[str, str | dict]]:
+    def run(self) -> list[dict[str, str | dict]]:
+        urls = self.get_urls()
+
+        if not self.type == self.REPOSITORY_TYPE:
+            return [{"url": url} for url in urls]
+
         rs = (grequests.get(url, proxies={"http": self.proxy}) for url in urls)
         responses = grequests.map(rs)
 
         result: list[dict[str, str | dict]] = []
         for response, url in zip(responses, urls, strict=True):
-            result_data = {"url": url}
-            if self.type == self.REPOSITORY_TYPE:
-                result_data.update({"extra": self.get_repo_extra(response)})
-            result.append(result_data)
+            result.append({"url": url, "extra": self.get_repo_extra(response)})
         return result
 
 
@@ -61,9 +67,9 @@ if __name__ == "__main__":
         with open(f"app/data/{file}", "r") as f:
             data = json.load(f)
 
-        instance = GitHubCrawler(**data)
-        collected_urls = instance.get_urls()
-        collected_data = instance.collect_url_info(collected_urls)
+        # validate data
+        GithubModel(**data)
+        collected_data = GitHubCrawler(**data).run()
 
         with open(f"app/data/output_example{index + 1}.json", "w") as f:
             json.dump(collected_data, f, indent=4)

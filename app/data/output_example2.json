@@ -1,1 +1,93 @@
-[]
+[
+    {
+        "url": "https://github.com/joaovictor1205/medicarAPI-Backend",
+        "extra": {
+            "owner": "joaovictor1205",
+            "language_stats": {
+                "Python": "100.0%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/Rabia23/DjangoRestJWTAuthentication",
+        "extra": {
+            "owner": "Rabia23",
+            "language_stats": {
+                "Python": "100.0%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/always-awake/SideProject_4",
+        "extra": {
+            "owner": "always-awake",
+            "language_stats": {
+                "Python": "100.0%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/joaovictor1205/navedexAPI",
+        "extra": {
+            "owner": "joaovictor1205",
+            "language_stats": {
+                "Python": "100.0%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/Firok/RestApp",
+        "extra": {
+            "owner": "Firok",
+            "language_stats": {
+                "Python": "97.7%",
+                "HTML": "2.3%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/shadon016/AuthSystem",
+        "extra": {
+            "owner": "shadon016",
+            "language_stats": null
+        }
+    },
+    {
+        "url": "https://github.com/diego1996/users-api",
+        "extra": {
+            "owner": "diego1996",
+            "language_stats": null
+        }
+    },
+    {
+        "url": "https://github.com/antonioxtasis/Django2_API",
+        "extra": {
+            "owner": "antonioxtasis",
+            "language_stats": {
+                "Python": "75.6%",
+                "Shell": "24.4%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/sergiorueda9090/blog-rest-framework",
+        "extra": {
+            "owner": "sergiorueda9090",
+            "language_stats": {
+                "Python": "100.0%"
+            }
+        }
+    },
+    {
+        "url": "https://github.com/estefiturin/django-blog-code",
+        "extra": {
+            "owner": "estefiturin",
+            "language_stats": {
+                "JavaScript": "67.6%",
+                "CSS": "27.8%",
+                "Python": "3.8%",
+                "HTML": "0.8%"
+            }
+        }
+    }
+]
