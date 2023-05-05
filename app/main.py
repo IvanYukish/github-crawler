@@ -67,7 +67,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--input_path', type=str, nargs='+',
                         help='path to dir that contains all input files inside current project, default "app/data"')
-    parser.add_argument('--output_path', type=int, nargs='+',
+    parser.add_argument('--output_path', type=str, nargs='+',
                         help='path to dir that contains all output files inside current project, default "app/data"')
 
     args = parser.parse_args()
