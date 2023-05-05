@@ -4,7 +4,7 @@ import grequests
 import pytest
 import requests
 
-from app.main import GitHubCrawler
+from app.crawlers import GitHubCrawler
 
 
 @pytest.mark.parametrize(
