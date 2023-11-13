@@ -1,0 +1,32 @@
+[
+    {
+        "url": "https://github.com/Styria-Digital/django-rest-framework-jwt/issues/4"
+    },
+    {
+        "url": "https://github.com/jazzband/django-auditlog/issues/115"
+    },
+    {
+        "url": "https://github.com/minuchi/minwoo-comments/issues/5"
+    },
+    {
+        "url": "https://github.com/vitalik/django-ninja/issues/45"
+    },
+    {
+        "url": "https://github.com/jazzband/djangorestframework-simplejwt/issues/71"
+    },
+    {
+        "url": "https://github.com/Bearle/django_private_chat2/issues/30"
+    },
+    {
+        "url": "https://github.com/juanifioren/django-oidc-provider/issues/78"
+    },
+    {
+        "url": "https://github.com/Loannes/DRF-JWT-AUTH/issues/2"
+    },
+    {
+        "url": "https://github.com/iMerica/dj-rest-auth/issues/503"
+    },
+    {
+        "url": "https://github.com/Loannes/DRF-JWT-AUTH/issues/3"
+    }
+]
