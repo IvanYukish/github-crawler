@@ -34,7 +34,7 @@ def test_get_urls(mock_map, mock_get, test_input, expected):
 
     response = [requests.Response()]
     response[0].status_code = 200
-    response[0]._content = content
+    response[0]._content = bytes(content, "utf-8")
     mock_map.return_value = response
     instance = GitHubCrawler(**test_input)
     urls = instance.get_urls()
@@ -72,6 +72,7 @@ def test_run(mock_crawler, mock_map, mock_get, test_input, expected):
     response = [requests.Response()]
     response[0].status_code = 200
     response[0]._content = bytes(content, "utf-8")
+    response[0].url = expected[0]["url"]
     mock_map.return_value = response
     instance = GitHubCrawler(**{
         "keywords": [
